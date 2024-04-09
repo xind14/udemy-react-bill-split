@@ -1,3 +1,5 @@
+import React from "react";
+
 const initialFriends = [
   {
     id: 118836,
@@ -18,3 +20,36 @@ const initialFriends = [
     balance: 0,
   },
 ];
+
+export default function App() {
+  return (
+    <div className="app">
+      <div className="sidebar">
+        <FriendsList />
+      </div>
+    </div>
+  );
+}
+
+function FriendsList() {
+  const friends = initialFriends;
+
+  return (
+    <div>
+      <ul>
+        {friends.map((friend)=>(
+          <Friend friend={friend} key={friend.id}/>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Friend ({friend}){
+  return (
+    <div>
+      <li>{friend.name}</li>
+    </div>
+  )
+
+}
